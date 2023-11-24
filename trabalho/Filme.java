@@ -6,7 +6,6 @@ public class Filme implements Comparable<Filme> {
     private String classificacao;
     private int ano;
 
-    // Construtor
     public Filme(String titulo, String genero, String classificacao, int ano) {
         this.titulo = titulo;
         this.genero = genero;
@@ -14,7 +13,7 @@ public class Filme implements Comparable<Filme> {
         this.ano = ano;
     }
 
-    // Getters
+    
     public String getTitulo() {
         return titulo;
     }
@@ -31,7 +30,7 @@ public class Filme implements Comparable<Filme> {
         return ano;
     }
 
-    // Setters
+    
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
@@ -48,13 +47,12 @@ public class Filme implements Comparable<Filme> {
         this.ano = ano;
     }
 
-    // Método compareTo
     @Override
     public int compareTo(Filme outroFilme) {
         return this.titulo.compareTo(outroFilme.getTitulo());
     }
 
-    // Método toString
+
     @Override
     public String toString() {
         return "Filme{" +

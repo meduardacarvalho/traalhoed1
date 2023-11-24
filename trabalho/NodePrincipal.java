@@ -5,14 +5,14 @@ public class NodePrincipal {
     private Categoria info;
     private NodePrincipal prox;
 
-    // Construtor
+    
     public NodePrincipal(Categoria info) {
         this.info = info;
         this.ante = null;
         this.prox = null;
     }
 
-    // Getters
+    
     public NodePrincipal getAnte() {
         return ante;
     }
@@ -25,7 +25,7 @@ public class NodePrincipal {
         return prox;
     }
 
-    // Setters
+    
     public void setAnte(NodePrincipal ante) {
         this.ante = ante;
     }

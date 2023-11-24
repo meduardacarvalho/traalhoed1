@@ -5,14 +5,14 @@ public class ListaFilmes {
     private int qtd;
     private NodeSecundario ultimo;
 
-    // Construtor
+
     public ListaFilmes() {
         this.primeiro = null;
         this.ultimo = null;
         this.qtd = 0;
     }
 
-    // Método de inserção ordenada na lista
+    
     public void inserirOrdenado(Filme filme) {
         NodeSecundario novoNode = new NodeSecundario(filme);
         if (primeiro == null) {
@@ -36,7 +36,7 @@ public class ListaFilmes {
         qtd++;
     }
 
-    // Método de remoção na lista
+    
     public void remover(String titulo) {
         NodeSecundario atual = primeiro;
         NodeSecundario anterior = null;
@@ -54,7 +54,7 @@ public class ListaFilmes {
         }
     }
 
-    // Método de busca na lista
+
     public Filme buscar(String titulo) {
         NodeSecundario atual = primeiro;
         while (atual != null) {
@@ -65,8 +65,6 @@ public class ListaFilmes {
         }
         return null;
     }
-
-    // Método de exibição da lista
     public void exibir() {
         NodeSecundario atual = primeiro;
         while (atual != null) {

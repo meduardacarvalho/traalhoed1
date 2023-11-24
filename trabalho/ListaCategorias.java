@@ -4,15 +4,13 @@ public class ListaCategorias {
     private NodePrincipal primeiro;
     private int qtd;
     private NodePrincipal ultimo;
-
-    // Construtor
     public ListaCategorias() {
         this.primeiro = null;
         this.ultimo = null;
         this.qtd = 0;
     }
 
-    // Método de inserção ordenada na lista
+
     public void inserirOrdenado(Categoria categoria) {
         NodePrincipal novoNode = new NodePrincipal(categoria);
         if (primeiro == null) {
@@ -35,8 +33,6 @@ public class ListaCategorias {
         }
         qtd++;
     }
-
-    // Método de remoção na lista
     public void remover(String descricao) {
         NodePrincipal atual = primeiro;
         NodePrincipal anterior = null;
@@ -54,7 +50,6 @@ public class ListaCategorias {
         }
     }
 
-    // Método de busca na lista
     public Categoria buscar(String descricao) {
         NodePrincipal atual = primeiro;
         while (atual != null) {
@@ -66,7 +61,6 @@ public class ListaCategorias {
         return null;
     }
 
-    // Método de exibição da lista
     public void exibir() {
         NodePrincipal atual = primeiro;
         while (atual != null) {

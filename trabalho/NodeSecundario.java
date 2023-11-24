@@ -5,14 +5,14 @@ public class NodeSecundario {
     private Filme info;
     private NodeSecundario prox;
 
-    // Construtor
+    
     public NodeSecundario(Filme info) {
         this.info = info;
         this.ante = null;
         this.prox = null;
     }
 
-    // Getters
+    
     public NodeSecundario getAnte() {
         return ante;
     }
@@ -25,7 +25,7 @@ public class NodeSecundario {
         return prox;
     }
 
-    // Setters
+    
     public void setAnte(NodeSecundario ante) {
         this.ante = ante;
     }
