@@ -151,7 +151,7 @@ public class Aplicacao {
                     exibirFilmesCategoria(descricaoCategoria);
                     break;
                 case 7:
-                    System.out.println("Saindo...");
+                    System.out.println("fim");
                     sc.close();
                     return;
                 default:

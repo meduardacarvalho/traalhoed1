@@ -96,7 +96,7 @@ public class ListaCategorias {
     }
 
     public NodePrincipal getPrimeiro() {
-        return null;
+        return primeiro;
     }
 }
 
