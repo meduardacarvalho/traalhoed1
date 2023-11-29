@@ -1,75 +1,78 @@
 package trabalho;
-
 public class ListaFilmes {
     private NodeSecundario primeiro;
     private int qtd;
-    private NodeSecundario ultimo;
-
 
     public ListaFilmes() {
         this.primeiro = null;
-        this.ultimo = null;
         this.qtd = 0;
     }
 
-    
     public void inserirOrdenado(Filme filme) {
         NodeSecundario novoNode = new NodeSecundario(filme);
+
         if (primeiro == null) {
             primeiro = novoNode;
-            ultimo = novoNode;
+            primeiro.setProx(primeiro);
+            primeiro.setAnte(primeiro);
         } else {
-            NodeSecundario atual = primeiro;
-            NodeSecundario anterior = null;
-            while (atual != null && filme.compareTo(atual.getInfo()) > 0) {
-                anterior = atual;
-                atual = atual.getProx();
-            }
-            if (anterior == null) {
-                novoNode.setProx(primeiro);
-                primeiro = novoNode;
-            } else {
-                novoNode.setProx(atual);
-                anterior.setProx(novoNode);
-            }
+            NodeSecundario ultimo = primeiro.getAnte();
+            novoNode.setProx(primeiro);
+            novoNode.setAnte(ultimo);
+            ultimo.setProx(novoNode);
+            primeiro.setAnte(novoNode);
         }
+
         qtd++;
     }
 
-    
     public void remover(String titulo) {
-        NodeSecundario atual = primeiro;
-        NodeSecundario anterior = null;
-        while (atual != null && !titulo.equals(atual.getInfo().getTitulo())) {
-            anterior = atual;
-            atual = atual.getProx();
-        }
-        if (atual != null) {
-            if (anterior == null) {
-                primeiro = primeiro.getProx();
-            } else {
-                anterior.setProx(atual.getProx());
-            }
-            qtd--;
+        if (primeiro != null) {
+            NodeSecundario atual = primeiro;
+
+            do {
+                if (titulo.equals(atual.getInfo().getTitulo())) {
+                    NodeSecundario anterior = atual.getAnte();
+                    NodeSecundario proximo = atual.getProx();
+
+                    anterior.setProx(proximo);
+                    proximo.setAnte(anterior);
+
+                    if (atual == primeiro) {
+                        primeiro = proximo;
+                    }
+
+                    qtd--;
+                    break;
+                }
+
+                atual = atual.getProx();
+            } while (atual != primeiro);
         }
     }
-
 
     public Filme buscar(String titulo) {
         NodeSecundario atual = primeiro;
-        while (atual != null) {
+
+        do {
             if (titulo.equals(atual.getInfo().getTitulo())) {
                 return atual.getInfo();
             }
+
             atual = atual.getProx();
-        }
+        } while (atual != primeiro);
+
         return null;
     }
+
     public void exibir() {
-        NodeSecundario atual = primeiro;
-        while (atual != null) {
-            System.out.println(atual.getInfo().toString());
-            atual = atual.getProx();
+        if (primeiro != null) {
+            NodeSecundario atual = primeiro;
+
+            do {
+                System.out.println(atual.getInfo().toString());
+                atual = atual.getProx();
+            } while (atual != primeiro);
         }
     }
 
@@ -77,12 +80,17 @@ public class ListaFilmes {
         return primeiro;
     }
 
+    public void setPrimeiro(NodeSecundario primeiro) {
+        this.primeiro = primeiro;
+    }
+
     public int getQtd() {
         return qtd;
     }
 
-    public NodeSecundario getUltimo() {
-        return ultimo;
+    public void setQtd(int qtd) {
+        this.qtd = qtd;
     }
-}
 
+    
+}
